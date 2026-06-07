@@ -1,29 +1,47 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Toaster } from "sonner";
+import { Cursor } from "@/components/portfolio/Cursor";
+import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
+import { Loader } from "@/components/portfolio/Loader";
+import { Nav } from "@/components/portfolio/Nav";
+import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
+import { Skills } from "@/components/portfolio/Skills";
+import { Work } from "@/components/portfolio/Work";
+import { Stats } from "@/components/portfolio/Stats";
+import { Testimonials } from "@/components/portfolio/Testimonials";
+import { Contact } from "@/components/portfolio/Contact";
+import { Footer } from "@/components/portfolio/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Curly Tales by Shiva — Cinematographer & Visual Storyteller" },
+      { name: "description", content: "Award-style cinematography, film direction, and visual storytelling by Shiva. Commercials, wedding films, music videos and brand campaigns crafted in Bangalore for clients worldwide." },
+      { property: "og:title", content: "Curly Tales by Shiva — Cinematographer" },
+      { property: "og:description", content: "Cinematic visual storytelling, commercials, weddings, and brand films by Shiva." },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="film-grain bg-background text-foreground relative">
+      <Loader />
+      <Cursor />
+      <ScrollProgress />
+      <Nav />
+      <Hero />
+      <About />
+      <Skills />
+      <Work />
+      <Stats />
+      <Testimonials />
+      <Contact />
+      <Footer />
+      <Toaster theme="dark" position="bottom-center" />
+    </main>
   );
 }
