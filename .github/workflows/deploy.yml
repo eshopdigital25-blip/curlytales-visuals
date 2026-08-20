@@ -33,6 +33,11 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Check build output
+        run: |
+          echo "=== DIST FILES ==="
+          find dist -maxdepth 3 -type f | sort
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
